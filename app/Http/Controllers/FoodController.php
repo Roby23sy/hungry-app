@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\FoodService;
 use Illuminate\Http\Request;
 use App\Models\Foods;
 
 class FoodController extends Controller
 {
+    public function __construct(
+        protected FoodService $foodService,
+    ) {}
+
     public function index(): \Illuminate\Http\JsonResponse
     {
         $foods = Foods::all();

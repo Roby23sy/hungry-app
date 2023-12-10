@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BurgerHubController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,8 @@ Route::prefix('foods')->group(function () {
 });
 
 Route::get('/burger-hub', [BurgerHubController::class,'index'])->name('index');
+
+Route::prefix('categories')->group(function () {
+    Route::get('/', [CategoryController::class, 'index']);
+    Route::get('/', [CategoryController::class, 'store']);
+});
